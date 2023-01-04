@@ -1,11 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Text, View ,TouchableOpacity} from 'react-native';
 
 export default function App() {
+  // var a=6;
+const [Count,SetCount]=useState(5)
+
+const Click=()=>{
+  SetCount(Count+1);
+  console.log(Count);
+}
+const Remove=()=>{
+  SetCount(Count-1);
+  console.log(Count);
+}
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Count :{Count}</Text>
+      {/* <StatusBar style="auto" /> */}
+      <TouchableOpacity  onPress={Click}>
+        <Text>Add</Text>
+      </TouchableOpacity>
+      <TouchableOpacity  onPress={Remove}>
+        <Text>Remove</Text>
+      </TouchableOpacity>
     </View>
   );
 }
